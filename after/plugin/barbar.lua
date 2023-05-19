@@ -1,6 +1,15 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
-
+require 'barbar'.setup {
+    icons = {
+        diagnostics = {
+            [vim.diagnostic.severity.ERROR] = { enabled = true },
+            [vim.diagnostic.severity.WARN] = { enabled = true },
+            [vim.diagnostic.severity.INFO] = { enabled = true },
+            [vim.diagnostic.severity.HINT] = { enabled = true },
+        }
+    },
+}
 -- Move to previous/next
 map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
@@ -37,5 +46,3 @@ map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
 map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
 map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
 map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
-
-
