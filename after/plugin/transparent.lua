@@ -33,6 +33,7 @@ transparent.setup({
         'BufferVisibleMod',
         'BufferCurrentMod',
         'BufferInactiveMod',
+        'StatusLine'
     },
 
     exclude_groups = {}, -- table: groups you don't want to clear
