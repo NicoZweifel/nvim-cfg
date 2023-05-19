@@ -59,3 +59,23 @@ lsp.setup()
 vim.diagnostic.config({
     virtual_text = true
 })
+
+local lspconfig = require("lspconfig")
+local util = require "lspconfig/util"
+
+lspconfig.gopls.setup {
+    on_attach = lsp.on_attach,
+    capabilities = lsp.apabilities,
+    cmd = { "gopls" },
+    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+    settings = {
+        gopls = {
+            completeUnimported = true,
+            usePlaceholders = true,
+            analyses = {
+                unusedparams = true,
+            },
+        },
+    },
+}

@@ -23,11 +23,16 @@ transparent.setup({
         'BufferTabpages',
         'BufferVisible',
         'BufferCurrent',
-        'BufferInactive', 'BufferVisibleSign',
+        'BufferInactive',
+        'BufferVisibleSign',
         'BufferCurrentSign',
         'BufferInactiveSign',
+        'BufferVisibleSignRight',
         'BufferCurrentSignRight',
         'BufferInactiveSignRight',
+        'BufferVisibleMod',
+        'BufferCurrentMod',
+        'BufferInactiveMod',
     },
 
     exclude_groups = {}, -- table: groups you don't want to clear
