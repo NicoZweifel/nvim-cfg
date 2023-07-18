@@ -119,14 +119,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\nicoz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  ["gopher.nvim"] = {
-    config = { "\27LJ\2\ni\0\2\5\0\5\0\r6\2\0\0'\4\1\0B\2\2\0029\2\2\2\18\4\1\0B\2\2\0016\2\0\0'\4\3\0B\2\2\0029\2\4\2'\4\1\0B\2\2\1K\0\1\0\18load_mappings\15core.utils\nsetup\vgopher\frequire\0" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "C:\\Users\\nicoz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\gopher.nvim",
-    url = "https://github.com/olexsmir/gopher.nvim"
-  },
   harpoon = {
     loaded = true,
     path = "C:\\Users\\nicoz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\harpoon",
@@ -157,11 +149,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\nicoz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["null-ls.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\nicoz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\null-ls.nvim",
-    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "C:\\Users\\nicoz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cmp",
@@ -171,19 +158,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\nicoz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-comment",
     url = "https://github.com/terrortylor/nvim-comment"
-  },
-  ["nvim-dap"] = {
-    loaded = true,
-    path = "C:\\Users\\nicoz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-dap",
-    url = "https://github.com/mfussenegger/nvim-dap"
-  },
-  ["nvim-dap-go"] = {
-    config = { "\27LJ\2\np\0\2\5\0\6\0\r6\2\0\0'\4\1\0B\2\2\0029\2\2\2\18\4\1\0B\2\2\0016\2\0\0'\4\3\0B\2\2\0029\2\4\2'\4\5\0B\2\2\1K\0\1\0\vdap_go\18load_mappings\15core.utils\nsetup\vdap-go\frequire\0" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "C:\\Users\\nicoz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\nvim-dap-go",
-    url = "https://github.com/dreamsofcode-io/nvim-dap-go"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -259,11 +233,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\nicoz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
-  },
-  ["zen-mode.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\nicoz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\zen-mode.nvim",
-    url = "https://github.com/folke/zen-mode.nvim"
   }
 }
 
@@ -288,13 +257,6 @@ time([[Config for nvim-tree.lua]], false)
 time([[Config for toggleterm.nvim]], true)
 try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
 time([[Config for toggleterm.nvim]], false)
-vim.cmd [[augroup packer_load_aucmds]]
-vim.cmd [[au!]]
-  -- Filetype lazy-loads
-time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType go ++once lua require("packer.load")({'gopher.nvim', 'nvim-dap-go'}, { ft = "go" }, _G.packer_plugins)]]
-time([[Defining lazy-load filetype autocommands]], false)
-vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
