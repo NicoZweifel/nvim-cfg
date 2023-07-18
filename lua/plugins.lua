@@ -84,7 +84,7 @@ return {
 
     {
         "nvim-treesitter/nvim-treesitter",
-        run = function()
+        build = function()
             local ts_update = require("nvim-treesitter.install").update({
                 with_sync = true
             })
@@ -122,7 +122,7 @@ return {
         dependencies = {"nvim-lua/plenary.nvim"}
     },
 
---[[     {
+    --[[     {
         "mfussenegger/nvim-dap",
         init = function()
             require("core.utils").load_mappings("dap")
