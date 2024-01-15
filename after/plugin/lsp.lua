@@ -8,6 +8,7 @@ lsp.ensure_installed({
 	"tsserver",
 	"rust_analyzer",
 	"gopls",
+  "tailwindcss"
 })
 
 -- Fix Undefined global 'vim'

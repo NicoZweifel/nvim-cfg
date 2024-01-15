@@ -16,7 +16,6 @@ return {
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
-
 	{
 		"folke/which-key.nvim",
 		config = function()
@@ -88,7 +87,7 @@ return {
 			ts_update()
 		end,
 	},
-
+"github/copilot.vim",
 	"nvim-treesitter/playground",
 	"ThePrimeagen/harpoon",
 	"mbbill/undotree",
@@ -123,23 +122,6 @@ return {
 		"jose-elias-alvarez/null-ls.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
-
-	{
-		"mfussenegger/nvim-dap",
-		init = function()
-			require("core.utils").load_mappings("dap")
-		end,
-	},
-	{
-		"dreamsofcode-io/nvim-dap-go",
-		ft = "go",
-		dependencies = "mfussenegger/nvim-dap",
-		config = function(_, opts)
-			require("dap-go").setup(opts)
-			require("core.utils").load_mappings("dap_go")
-		end,
-	},
-
 	{
 		"olexsmir/gopher.nvim",
 		ft = "go",
