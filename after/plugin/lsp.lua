@@ -133,3 +133,25 @@ require("typescript").setup({
 		end,
 	},
 })
+
+lspconfig.tailwindcss.setup({
+          filetypes = {
+            "scss",
+            "sass",
+            "postcss",
+            "html",
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            "svelte",
+            "vue",
+            "rust",
+            "rs"
+          },
+          experimental = {
+            classRegex = {
+              "class\\=([^>]*)", "\"([^\"]*)\"",
+            },
+          },
+})

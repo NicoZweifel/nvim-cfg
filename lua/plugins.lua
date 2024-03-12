@@ -87,7 +87,7 @@ return {
 			ts_update()
 		end,
 	},
-"github/copilot.vim",
+	"github/copilot.vim",
 	"nvim-treesitter/playground",
 	"ThePrimeagen/harpoon",
 	"mbbill/undotree",
@@ -107,7 +107,20 @@ return {
 			},
 			{ "williamboman/mason-lspconfig.nvim" }, -- Optional
 			-- Autocompletion
-			{ "hrsh7th/nvim-cmp" }, -- Required
+			{ "hrsh7th/nvim-cmp",
+dependencies = {
+      { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
+    },
+    opts = function(_, opts)
+      -- original LazyVim kind icon formatter
+      local format_kinds = opts.formatting.format
+      opts.formatting.format = function(entry, item)
+        format_kinds(entry, item) -- add icons
+        return require("tailwindcss-colorizer-cmp").formatter(entry, item)
+      end
+    end,
+
+    }, -- Required
 			{ "hrsh7th/cmp-nvim-lsp" }, -- Required
 			{ "L3MON4D3/LuaSnip" }, -- Required
 		},
@@ -144,18 +157,11 @@ return {
 		dependencies = { { "nvim-tree/nvim-web-devicons" } },
 	},
 	{
-		"pwntester/octo.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope.nvim",
-			"nvim-tree/nvim-web-devicons",
+		"NvChad/nvim-colorizer.lua",
+		opts = {
+			user_default_options = {
+				tailwind = true,
+			},
 		},
-		config = function()
-			require("octo").setup({
-				ui = {
-					use_signcolumn = false,
-				},
-			})
-		end,
 	},
 }
