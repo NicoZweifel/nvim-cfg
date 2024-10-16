@@ -155,6 +155,25 @@ return {
 		version = "^5", -- Recommended
 		lazy = false, -- This plugin is already lazy
 	},
+	{
+		"pmizio/typescript-tools.nvim",
+		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+		opts = {},
+		config = function()
+			require("typescript-tools").setup({
+				on_attach = function(client, bufnr)
+					client.server_capabilities.documentFormattingProvider = false
+					client.server_capabilities.documentRangeFormattingProvider = false
+				end,
+				settings = {
+					jsx_close_tag = {
+						enable = true,
+						filetypes = { "javascriptreact", "typescriptreact" },
+					},
+				},
+			})
+		end,
+	},
 	{ -- Autoformat
 		"stevearc/conform.nvim",
 		event = { "BufWritePre" },
@@ -189,11 +208,27 @@ return {
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
-				-- Conform can also run multiple formatters sequentially
-				-- python = { "isort", "black" },
-				--
-				-- You can use 'stop_after_first' to run the first available formatter from the list
-				-- javascript = { "prettierd", "prettier", stop_after_first = true },
+				html = { { "prettierd" } },
+				javascript = { { "prettierd" } },
+				javascriptreact = { { "prettierd" } },
+				markdown = { { "prettierd" } },
+				typescript = { { "prettierd" } },
+				typescriptreact = { { "prettierd" } },
+				["*"] = { "trim_whitespace" },
+			},
+			formatters = {
+				prettierd = {
+					condition = function()
+						return vim.loop.fs_realpath(".prettierrc.js") ~= nil
+							or vim.loop.fs_realpath(".prettierrc.mjs") ~= nil
+							or vim.loop.fs_realpath(".prettierrc.cjs") ~= nil
+							or vim.loop.fs_realpath(".prettier.config.js") ~= nil
+							or vim.loop.fs_realpath(".prettier.config.mjs") ~= nil
+							or vim.loop.fs_realpath(".prettier.config.cjs") ~= nil
+							or vim.loop.fs_realpath(".prettierrc.json") ~= nil
+							or vim.loop.fs_realpath(".prettierrc.yaml") ~= nil
+					end,
+				},
 			},
 		},
 	},
@@ -403,6 +438,7 @@ return {
 				"query",
 				"vim",
 				"vimdoc",
+				"typescript",
 			},
 			-- Autoinstall languages that are not installed
 			auto_install = true,
