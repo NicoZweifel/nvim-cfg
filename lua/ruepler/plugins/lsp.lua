@@ -121,6 +121,13 @@ return {
 							vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
 						end,
 					})
+
+					vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+						pattern = "*.wgsl",
+						callback = function()
+							vim.bo.filetype = "wgsl"
+						end,
+					})
 				end
 
 				-- The following code creates a keymap to toggle inlay hints in your
@@ -155,6 +162,7 @@ return {
 			-- clangd = {},
 			-- gopls = {},
 			-- rust_analyzer = {},
+			wgsl_analyzer = {},
 			tailwindcss = {
 				filetypes = {
 					"scss",
@@ -243,5 +251,21 @@ return {
 				})
 			end,
 		})
+
+		local lspconfig = require("lspconfig")
+		local configs = require("lspconfig.configs")
+
+		if not configs.wgsl_analyzer then
+			configs.wgsl_analyzer = {
+				default_config = {
+					cmd = { "C:/Users/nicoz/.cargo/bin/wgsl_analyzer.exe" },
+					filetypes = { "wgsl" },
+					root_dir = lspconfig.util.root_pattern(".git", "wgsl"),
+					settings = {},
+				},
+			}
+		end
+
+		require("lspconfig").wgsl_analyzer.setup({})
 	end,
 }
