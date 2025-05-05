@@ -152,7 +152,7 @@ return {
 	require("ruepler.plugins.lsp"),
 	{
 		"mrcjkb/rustaceanvim",
-		version = "^5", -- Recommended
+		version = "^6", -- Recommended
 		lazy = false, -- This plugin is already lazy
 	},
 	{
@@ -208,12 +208,12 @@ return {
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
-				html = { { "prettierd" } },
-				javascript = { { "prettierd" } },
-				javascriptreact = { { "prettierd" } },
-				markdown = { { "prettierd" } },
-				typescript = { { "prettierd" } },
-				typescriptreact = { { "prettierd" } },
+				html = { "prettierd" },
+				javascript = { "prettierd" },
+				javascriptreact = { "prettierd" },
+				markdown = { "prettierd" },
+				typescript = { "prettierd" },
+				typescriptreact = { "prettierd" },
 				["*"] = { "trim_whitespace" },
 			},
 			formatters = {
